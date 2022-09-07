@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import Link from 'next/link'
+import HeaderComponent from '../components/organisms/Header'
 
 const NavLists = [
     {
@@ -22,14 +22,8 @@ const NavLists = [
 export default function MyApp({ Component, pageProps }) {
     return (
         <div id='my-app'>
-            <header>
-                <nav>
-                    {NavLists && NavLists.map(nav => (
-                        <div key={nav.id}>
-                            <Link href={nav.path}>{nav.label}</Link>
-                        </div>
-                    ))}
-                </nav>
+            <header className='app-header'>
+                <HeaderComponent NavLinks={NavLists} />
             </header>
             <main>
                 <Component {...pageProps} />

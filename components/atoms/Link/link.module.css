@@ -1,0 +1,12 @@
+/* .nav_item {
+
+} */
+
+.nav_item a {
+    padding: 0.5rem;
+}
+
+.active {
+    background-color: #fff;
+    color: #000;
+}
