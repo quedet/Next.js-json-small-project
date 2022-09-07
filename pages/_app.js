@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import HeaderComponent from '../components/organisms/Header'
+// import Head from 'next/head'
 
 const NavLists = [
     {

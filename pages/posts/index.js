@@ -2,7 +2,7 @@ import Link from 'next/link'
 import useSWR from 'swr'
 
 import { useState } from 'react'
-import { fetcher } from '../../lib/api'
+import { fetcher } from '../../utilities/api'
 
 export async function getStaticProps() {
     const posts = await fetcher(`${process.env.NEXT_JSON_PLACEHOLDER_URL}/posts`)

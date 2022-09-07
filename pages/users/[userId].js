@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { fetcher } from "../../lib/api"
+import { fetcher } from "../../utilities/api"
 
 export async function getStaticPaths() {
     const users = await fetcher(`${process.env.NEXT_JSON_PLACEHOLDER_URL}/users`)
