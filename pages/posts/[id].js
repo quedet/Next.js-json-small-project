@@ -1,8 +1,8 @@
 import Link from "next/link"
+import { fetcher } from "../../lib/api"
 
 export async function getStaticPaths () {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/`)
-    const posts = await response.json()
+    const posts = await fetcher(`${process.env.NEXT_JSON_PLACEHOLDER_URL}/posts/`)
 
     const paths = posts.map((post) => ({ 
         params: { id: post.id.toString() },
@@ -16,14 +16,9 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps ({ params }) {
-    const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
-    const post = await postResponse.json()
-
-    const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
-    const user = await userResponse.json()
-
-    const commentResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}/comments`)
-    const comments = await commentResponse.json()
+    const post = await fetcher(`${process.env.NEXT_JSON_PLACEHOLDER_URL}/posts/${params.id}`)
+    const user = await fetcher(`${process.env.NEXT_JSON_PLACEHOLDER_URL}/users/${post.userId}`)
+    const comments = await fetcher(`${process.env.NEXT_JSON_PLACEHOLDER_URL}/posts/${params.id}/comments`)
 
     return {
         props: {
