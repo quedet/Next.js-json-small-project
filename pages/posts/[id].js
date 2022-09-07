@@ -50,7 +50,7 @@ export default function SinglePostPage ({ post, user, comments }) {
                     {comments && comments.map(comment => (
                         <div key={comment.id}>
                             <div><strong>{comment.email}</strong> said: </div>
-                            <div><em>"{comment.body}"</em></div>
+                            <div><em>&ldquo;{comment.body}&rdquo;</em></div>
                             <br />
                         </div>
                     ))}
